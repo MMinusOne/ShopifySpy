@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { 
+    transition: all 100ms linear;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
