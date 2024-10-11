@@ -26,7 +26,7 @@ export default function Analyse() {
           <Header />
         </div>
         <div className="min-h-screen hero">
-          <div className="w-1/2 text-center hero-content">
+          <div className="w-full text-center hero-content">
             <div className="w-full max-w-3xl">
               <h1 className="py-6 font-bold text-5xl">ShopifySpy</h1>
               {loading ? (
@@ -40,7 +40,7 @@ export default function Analyse() {
                   <p className="font-normal">
                     Enter any Shopify website's URL!
                   </p>
-                  <div className="flex justify-center items-center gap-2 w-full">
+                  <div className="flex md:flex-row flex-col justify-center items-center gap-2 w-full h-36">
                     <input
                       type="url"
                       placeholder="Shopify URL"
@@ -51,7 +51,7 @@ export default function Analyse() {
                     />
                     <SignedIn>
                       <button
-                        className="btn btn-primary"
+                        className="w-full md:w-16 max-w-xs btn btn-primary"
                         onClick={async () => {
                           setError("");
                           setLoading(true);
@@ -93,7 +93,7 @@ export default function Analyse() {
 
                     <SignedOut>
                       <button
-                        className="btn btn-primary"
+                        className="w-full md:w-16 max-w-xs btn btn-primary"
                         onClick={async () => {
                           openSignIn();
                         }}
