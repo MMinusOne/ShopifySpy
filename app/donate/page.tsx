@@ -9,7 +9,7 @@ export default function Page() {
   const [totalDonations, setTotalDonations] = useState<number>(0);
   const [donationUrl, setDonationUrl] = useState();
   const { user, openSignIn, loaded } = useClerk();
-  const goalAmount = 100;
+  const [goalAmount, setGoalAmount] = useState(0);
 
   useEffect(() => {
     console.log({ loaded, user });
@@ -40,6 +40,7 @@ export default function Page() {
         const { data } = await axios.get("/api/payments/donationGoal", { headers: { 'Cache-Control': 'no-cache' } });
         if (data?.donationGoal) {
           setTotalDonations(parseInt(data.donationGoal.current_amount));
+          setGoalAmount(parseInt(data.donationGoal.target_amount));
         }
       } catch (error) {
         console.error("Error fetching donation goal:", error);
