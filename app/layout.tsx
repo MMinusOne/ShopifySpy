@@ -19,7 +19,7 @@ export default function RootLayout({
             dangerouslySetInnerHTML={{
               __html: `
                 atOptions = {
-                  'key' : 'fddf1e5313e5b1e09fe510baf4c1ab3a',
+                  'key' : 'b7081c03a15d9a99b3866fcb2327a6e4',
                   'format' : 'iframe',
                   'height' : 60,
                   'width' : 468,
@@ -28,7 +28,10 @@ export default function RootLayout({
               `,
             }}
           />
-          <script src="//www.topcpmcreativeformat.com/fddf1e5313e5b1e09fe510baf4c1ab3a/invoke.js" />
+          <script
+            type="text/javascript"
+            src="//www.topcpmcreativeformat.com/b7081c03a15d9a99b3866fcb2327a6e4/invoke.js"
+          />
         </body>
       </html>
     </ClerkProvider>
