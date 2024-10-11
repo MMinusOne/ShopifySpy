@@ -37,6 +37,7 @@ export default function Analysis({
     labels: [],
     data: [],
   });
+  const [progress, setProgress] = useState({ page: 0, items: 0 });
   const [page, setPage] = useState(1);
 
   const exportToCSV = () => {
@@ -114,8 +115,8 @@ export default function Analysis({
 
     const getProducts = async () => {
       await checkIsValid();
-      const requestedProducts = await fetchProducts(url);
-      console.log({ requestedProducts })
+      const requestedProducts = await fetchProducts(url, setProgress);
+      console.log({ requestedProducts });
       setProducts(requestedProducts!);
       setLoading(false);
     };
@@ -153,6 +154,9 @@ export default function Analysis({
               <p className="flex justify-center items-center gap-2 font-bold text-neutral text-xl md:text-4xl">
                 Loading store data! This may take a while (˶ᵔ ᵕ ᵔ˶){" "}
                 <span className="flex justify-end items-end loading loading-dots loading-lg"></span>
+                <span className="flex justify-end items-end">
+                  ({progress.items} products)
+                </span>
               </p>
             </div>
           </>
