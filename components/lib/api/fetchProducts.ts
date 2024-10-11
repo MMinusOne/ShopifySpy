@@ -1,5 +1,6 @@
 "use server";
 
+export const maxDuration = 60;
 import axios from 'axios';
 import isSpyable from './IsSpyable';
 
