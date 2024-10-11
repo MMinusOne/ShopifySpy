@@ -112,7 +112,12 @@ export default function Header() {
                   signOut();
                 }}
               >
-                <a className="text-error">
+                <a
+                  onClick={() => {
+                    signOut();
+                  }}
+                  className="text-error"
+                >
                   <FaSignOutAlt />
                   Logout
                 </a>

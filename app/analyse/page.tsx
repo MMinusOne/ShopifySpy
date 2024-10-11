@@ -51,7 +51,7 @@ export default function Analyse() {
                     />
                     <SignedIn>
                       <button
-                        className="w-full md:w-16 max-w-xs btn btn-primary"
+                        className="w-full md:w-fit max-w-xs btn btn-primary"
                         onClick={async () => {
                           setError("");
                           setLoading(true);
@@ -93,7 +93,7 @@ export default function Analyse() {
 
                     <SignedOut>
                       <button
-                        className="w-full md:w-16 max-w-xs btn btn-primary"
+                        className="w-full md:w-fit max-w-xs btn btn-primary"
                         onClick={async () => {
                           openSignIn();
                         }}
