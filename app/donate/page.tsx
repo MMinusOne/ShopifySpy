@@ -37,7 +37,7 @@ export default function Page() {
   useEffect(() => {
     const fetchDonationGoal = async () => {
       try {
-        const { data } = await axios.get("/api/payments/donationGoal");
+        const { data } = await axios.get("/api/payments/donationGoal", { headers: { 'Cache-Control': 'no-cache' } });
         if (data?.donationGoal) {
           setTotalDonations(parseInt(data.donationGoal.current_amount));
         }
