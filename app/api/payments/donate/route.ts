@@ -10,11 +10,11 @@ export async function POST(req: NextRequest, res: NextApiResponse): Promise<Next
         console.log(process.env.LEMONSQUEEZY_STORE_ID)
 
         if (!reqData.productId) {
-            return NextResponse.json({ message: "productId is required", status: 400 });
+            return NextResponse.json({ message: "productId is required" }, { status: 400 });
         }
 
         if (!reqData.userId) {
-            return NextResponse.json({ message: "userId is required", status: 400 });
+            return NextResponse.json({ message: "userId is required" }, { status: 400 });
         }
 
         const response = await lemonSqueezyApiInstance.post("/checkouts", {
@@ -47,6 +47,6 @@ export async function POST(req: NextRequest, res: NextApiResponse): Promise<Next
         return NextResponse.json(response.data);
     } catch (error) {
         console.error(error);
-        return NextResponse.json({ message: 'An error occurred', status: 500 });
+        return NextResponse.json({ message: 'An error occurred' }, { status: 500 });
     }
 }

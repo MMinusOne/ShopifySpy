@@ -12,6 +12,7 @@
     "@clerk/nextjs": "^5.7.1",
     "@lemonsqueezy/lemonsqueezy.js": "^3.3.1",
     "@lemonsqueezy/wedges": "^1.4.0",
+    "@neondatabase/serverless": "^0.10.1",
     "apexcharts": "^3.54.0",
     "axios": "^1.7.7",
     "csv-stringify": "^6.5.1",

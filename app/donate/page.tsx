@@ -18,7 +18,7 @@ export default function Page() {
     } else if(user) {
       console.log('hi')
       const fetchDonationUrl = async () => {
-        const { data } = await axios.post(`/api/donate`, {
+        const { data } = await axios.post(`/api/payments/donate`, {
           productId: "551892",
           userId: user.id || "",
         });
