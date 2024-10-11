@@ -9,6 +9,7 @@ import {
   FaLightbulb,
   FaMoon,
   FaPlus,
+  FaHeart,
 } from "react-icons/fa";
 
 export default function Header() {
@@ -22,9 +23,6 @@ export default function Header() {
         <a className="gap-0 font-bold text-xl btn btn-ghost" href="/">
           Shopify<b className="text-primary">Spy</b>
         </a>
-        <a className="md:flex hidden btn btn-ghost" href="/pricing">
-          Pricing
-        </a>
         <a className="md:flex hidden btn btn-ghost" href="/terms">
           Terms
         </a>
@@ -34,17 +32,19 @@ export default function Header() {
         <a className="md:flex hidden btn btn-ghost" href="/about">
           About
         </a>
+        <a
+          className="md:flex hidden bg-opacity-40 btn btn-primary"
+          href="/donate"
+        >
+          Donate <FaHeart className="fill-primary" />
+        </a>
 
         <details className="flex md:hidden dropdown">
           <summary className="m-1 btn btn-circle">
             <FaPlus />
           </summary>
           <ul className="z-[1] bg-base-100 shadow p-2 rounded-box w-52 dropdown-content menu">
-            <li>
-              <a className="btn btn-ghost" href="/pricing">
-                Pricing
-              </a>
-            </li>
+            <li></li>
             <li>
               <a className="btn btn-ghost" href="/terms">
                 Terms
@@ -58,6 +58,11 @@ export default function Header() {
             <li>
               <a className="btn btn-ghost" href="/about">
                 About
+              </a>
+            </li>
+            <li>
+              <a className="bg-opacity-40 btn btn-primary" href="/donate">
+                Donate <FaHeart className="fill-primary"/>
               </a>
             </li>
           </ul>

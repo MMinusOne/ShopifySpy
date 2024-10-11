@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^5.7.1",
+    "@lemonsqueezy/lemonsqueezy.js": "^3.3.1",
+    "@lemonsqueezy/wedges": "^1.4.0",
     "apexcharts": "^3.54.0",
     "axios": "^1.7.7",
     "csv-stringify": "^6.5.1",
     "daisyui": "^4.12.12",
+    "lemonsqueezy": "0.0.1-claimed",
     "next": "14.2.15",
     "react": "^18",
     "react-apexcharts": "^1.4.1",

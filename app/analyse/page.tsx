@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Analyse() {
-  const { openSignIn, user } = useClerk();
+  const { openSignIn, user, loaded } = useClerk();
   const [websiteUrl, setWebsiteUrl] = useState<string>();
   const router = useRouter();
   const [error, setError] = useState<string>();
@@ -17,7 +17,7 @@ export default function Analyse() {
     if (!user) {
       openSignIn();
     }
-  }, [user]);
+  }, [user, loaded]);
 
   return (
     <>

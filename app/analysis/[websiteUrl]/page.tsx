@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { FaArrowLeft, FaFileCsv } from "react-icons/fa";
 import { FaArrowRightToBracket } from "react-icons/fa6";
 import { stringify } from "csv-stringify/sync";
+import { useClerk } from "@clerk/nextjs";
 
 export default function Analysis({
   params,
@@ -20,6 +21,7 @@ export default function Analysis({
   params: { websiteUrl: string };
 }) {
   const router = useRouter();
+  const { user, openSignIn, loaded } = useClerk();
   const url = decodeURIComponent(params.websiteUrl);
   const [loading, setLoading] = useState<boolean>(true);
   const [products, setProducts] = useState<Product[]>([]);
@@ -39,6 +41,12 @@ export default function Analysis({
   });
   const [progress, setProgress] = useState({ page: 0, items: 0 });
   const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    if (!user) {
+      openSignIn();
+    }
+  }, [user, loaded]);
 
   const exportToCSV = () => {
     const header = [
