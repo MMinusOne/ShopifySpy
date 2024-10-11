@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en" data-theme="emerald" className="w-[100vw] h-[100vh]">
-        <body className="w-full h-full">{children}</body>
+        <body className="w-full h-full overflow-x-hidden">{children}</body>
       </html>
   );
 }
