@@ -23,15 +23,13 @@ export async function POST(req: Request) {
             const isSuccess = body.data.attributes.status === "paid";
             if (isSuccess) {
                 const amountPaid = body.data.attributes.total;
-                const sql = neon(process.env.DATABASE_URL!);
+                const sql = neon(process.env.NEON_DATABASE_URL!);
 
-                // Update donation goal
                 await sql`
                     UPDATE donation_goal
                     SET current_amount = current_amount + ${amountPaid}
                 `;
 
-                // Add user to donors list
                 await sql`
                     INSERT INTO donors (user_id, amount)
                     VALUES (${userId}, ${amountPaid})

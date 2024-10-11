@@ -14,6 +14,7 @@ import { FaArrowLeft, FaFileCsv } from "react-icons/fa";
 import { FaArrowRightToBracket } from "react-icons/fa6";
 import { stringify } from "csv-stringify/sync";
 import { useClerk } from "@clerk/nextjs";
+import axios from "axios";
 
 export default function Analysis({
   params,
@@ -41,12 +42,26 @@ export default function Analysis({
   });
   const [progress, setProgress] = useState({ page: 0, items: 0 });
   const [page, setPage] = useState(1);
+  const [hasDonated, setHasDonated] = useState();
 
   useEffect(() => {
-    if (!user) {
+    if (!user && loaded) {
       openSignIn();
+    } else if (user) {
+      const checkDonationStatus = async () => {
+        const response = await axios.post("/api/payments/hasDonated", {
+          userId: user.id,
+        });
+        if (response.data) setHasDonated(response.data.hasDonated);
+      };
+
+      checkDonationStatus();
     }
   }, [user, loaded]);
+
+  useEffect(() => {
+    console.log(hasDonated);
+  }, [hasDonated]);
 
   const exportToCSV = () => {
     const header = [
@@ -73,8 +88,10 @@ export default function Analysis({
       "Product Images",
     ];
 
-    const data = products.flatMap((product) =>
-      product.variants.map((variant) => [
+    const exportProducts = hasDonated ? products : products.slice(0, 100);
+
+    const data = exportProducts.flatMap((product) =>
+      product.variants.map((variant, variantIndex) => [
         `"${variant.id.toString()}"`,
         product.title,
         product.id,
@@ -124,7 +141,6 @@ export default function Analysis({
     const getProducts = async () => {
       await checkIsValid();
       const requestedProducts = await fetchProducts(url, setProgress);
-      console.log({ requestedProducts });
       setProducts(requestedProducts!);
       setLoading(false);
     };
@@ -159,7 +175,7 @@ export default function Analysis({
         {loading ? (
           <>
             <div className="flex justify-center items-center w-full h-full">
-              <p className="flex justify-center items-center gap-2 font-bold text-neutral text-xl md:text-4xl">
+              <p className="flex justify-center items-center gap-2 font-bold text-base-content text-xl md:text-4xl">
                 Loading store data! This may take a while (˶ᵔ ᵕ ᵔ˶){" "}
                 <span className="flex justify-end items-end loading loading-dots loading-lg"></span>
                 <span className="flex justify-end items-end">
@@ -203,7 +219,9 @@ export default function Analysis({
                     </a>
                     <a
                       href={`data:text/json;charset=utf-8,${encodeURIComponent(
-                        JSON.stringify(products)
+                        JSON.stringify(
+                          hasDonated ? products : products.slice(0, 100)
+                        )
                       )}`}
                       download="products.json"
                       className="btn btn-warning btn-wide"

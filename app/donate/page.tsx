@@ -8,15 +8,15 @@ import React, { useState, useEffect } from "react";
 export default function Page() {
   const [totalDonations, setTotalDonations] = useState<number>(0);
   const [donationUrl, setDonationUrl] = useState();
-  const { user, openSignIn, loaded  } = useClerk();
+  const { user, openSignIn, loaded } = useClerk();
   const goalAmount = 100;
 
   useEffect(() => {
-    console.log({ loaded, user })
+    console.log({ loaded, user });
     if (!user && loaded) {
       openSignIn();
-    } else if(user) {
-      console.log('hi')
+    } else if (user) {
+      console.log("hi");
       const fetchDonationUrl = async () => {
         const { data } = await axios.post(`/api/payments/donate`, {
           productId: "551892",
@@ -33,6 +33,25 @@ export default function Page() {
       fetchDonationUrl();
     }
   }, [user, loaded]);
+
+  useEffect(() => {
+    const fetchDonationGoal = async () => {
+      try {
+        const { data } = await axios.get("/api/payments/donationGoal");
+        if (data?.donationGoal) {
+          setTotalDonations(parseInt(data.donationGoal.current_amount));
+        }
+      } catch (error) {
+        console.error("Error fetching donation goal:", error);
+      }
+    };
+
+    fetchDonationGoal();
+
+    const intervalId = setInterval(fetchDonationGoal, 30000);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   const handleDonation = async () => {};
 

@@ -7,7 +7,6 @@ export const dynamic = 'force-dynamic';
 export async function POST(req: NextRequest, res: NextApiResponse): Promise<NextResponse> {
     try {
         const reqData = await req.json();
-        console.log(process.env.LEMONSQUEEZY_STORE_ID)
 
         if (!reqData.productId) {
             return NextResponse.json({ message: "productId is required" }, { status: 400 });
