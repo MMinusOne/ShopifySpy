@@ -115,6 +115,7 @@ export default function Analysis({
     const getProducts = async () => {
       await checkIsValid();
       const requestedProducts = await fetchProducts(url);
+      console.log({ requestedProducts })
       setProducts(requestedProducts!);
       setLoading(false);
     };

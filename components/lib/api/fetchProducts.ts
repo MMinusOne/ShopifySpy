@@ -20,7 +20,7 @@ export default async function fetchProducts(url: string) {
             return data
             break;
         }
-
+        console.log(page);
         page++
     }
 }
