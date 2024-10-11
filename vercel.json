@@ -1,7 +1,2 @@
 {
-  "functions": {
-    "components/lib/api/fetchProducts.ts": {
-      "maxDuration": 60
-    }
-  }
 }
