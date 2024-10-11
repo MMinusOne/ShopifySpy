@@ -38,7 +38,7 @@ export default function About() {
                 <li>Comprehensive data analysis tools</li>
                 <li>Ability to download store data</li>
                 <li>Free to use</li>
-                <li>Ad-supported model</li>
+                <li>Donation-supported model</li>
               </ul>
             </div>
 
