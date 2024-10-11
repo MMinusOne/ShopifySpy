@@ -1,16 +1,16 @@
 import { neon } from '@neondatabase/serverless';
-import { NextApiResponse } from 'next';
-import { NextRequest } from 'next/server';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
     try {
         const sql = neon(process.env.NEON_DATABASE_URL!);
-        const [updatedDonationGoal] = await sql`
+        const [donationGoal] = await sql`
                     SELECT * FROM donation_goal
                 `;
 
         return Response.json({
-            donationGoal: updatedDonationGoal
+            donationGoal: donationGoal
         });
 
     } catch (error) {

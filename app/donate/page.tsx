@@ -53,7 +53,6 @@ export default function Page() {
     return () => clearInterval(intervalId);
   }, []);
 
-  const handleDonation = async () => {};
 
   const progressPercentage = (totalDonations / goalAmount) * 100;
 
@@ -71,7 +70,6 @@ export default function Page() {
 
             <a
               className="mb-6 w-full btn btn-primary"
-              onClick={handleDonation}
               href={donationUrl}
               target="_blank"
             >

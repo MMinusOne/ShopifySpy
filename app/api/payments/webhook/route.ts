@@ -22,7 +22,7 @@ export async function POST(req: Request) {
             const userId = body.meta.custom_data.user_id;
             const isSuccess = body.data.attributes.status === "paid";
             if (isSuccess) {
-                const amountPaid = body.data.attributes.total;
+                const amountPaid = body.data.attributes.total_usd;
                 const sql = neon(process.env.NEON_DATABASE_URL!);
 
                 await sql`
