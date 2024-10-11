@@ -155,7 +155,11 @@ export default function Analysis({
                 Loading store data! This may take a while (˶ᵔ ᵕ ᵔ˶){" "}
                 <span className="flex justify-end items-end loading loading-dots loading-lg"></span>
                 <span className="flex justify-end items-end">
-                  ({progress.items} products)
+                  (
+                  {new Intl.NumberFormat("en", {
+                    notation: "compact",
+                  }).format(progress.items)}{" "}
+                  products)
                 </span>
               </p>
             </div>
