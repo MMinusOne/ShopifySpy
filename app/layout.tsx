@@ -18,7 +18,7 @@ export default function RootLayout({
         data-theme={theme === "dark" ? "dim" : "light"}
         className="w-full h-full"
       >
-        <body className="w-full">{children}</body>
+        <body className="w-full h-full">{children}</body>
       </html>
     </ClerkProvider>
   );

@@ -1,13 +1,8 @@
+"use client";
+
 import { useTheme } from "@/components/state/theme";
 import "@/styles/globals.scss";
-
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "ShopifySpy",
-  description:
-    "Spy on your shopify competitor's information, database items, and much more!",
-};
+import Head from "next/head";
 
 export default function RootLayout({
   children,
@@ -15,9 +10,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const { theme } = useTheme();
+
   return (
-      <html lang="en" data-theme={theme === "dark"? "dim": "light"} className="w-[100vw] h-[100vh]">
-        <body className="w-full h-full overflow-x-hidden">{children}</body>
-      </html>
+    <html lang="en" data-theme={theme === "dark" ? "dim" : "light"} className="w-[100vw] h-[100vh]">
+      <Head>
+        <title>Your Page Title</title>
+        <meta name="description" content="Analyze competitive databases in seconds!" />
+        <meta property="og:title" content="ShopifySpy" />
+        <meta property="og:description" content="Analyze competitive databases in seconds!" />
+        <meta property="og:image" content="/assets/Image.png" />
+        <meta property="og:url" content="https://shopify-spy.vercel.app/" />
+      </Head>
+      <body className="w-full h-full overflow-x-hidden">{children}</body>
+    </html>
   );
 }

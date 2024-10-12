@@ -22,7 +22,7 @@ export default function Header() {
     <div className="bg-base-100 shadow-2xl rounded-2xl navbar">
       <div className="flex-1 gap-1">
         <a className="gap-0 font-bold text-xl btn btn-ghost" href="/">
-          Shopify<b className="text-primary">Spy</b>
+          Shopify<span className="text-primary">Spy</span>
         </a>
         <a className="md:flex hidden btn btn-ghost" href="/terms">
           Terms
