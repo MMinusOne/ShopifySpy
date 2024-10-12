@@ -2,7 +2,7 @@
 
 import Header from "@/components/ui/Header";
 
-export default function Error({ error }) {
+export default function Error({ error }: any) {
   console.log({ error });
   return (
     <>
