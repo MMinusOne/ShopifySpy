@@ -7,7 +7,7 @@ export default function Error({ error }) {
   return (
     <>
       <div
-        className={`flex flex-col justify-center gap-4 bg-base-100 p-6 w-full h-full`}
+        className={`flex flex-col justify-center gap-4 bg-base-100 p-6 w-full h-[100vh]`}
       >
         <div className="flex justify-center items-center w-full h-20">
           <Header />
@@ -16,7 +16,7 @@ export default function Error({ error }) {
         <div className="flex flex-col justify-center items-center gap-5 w-full h-full">
           <p className="flex flex-col justify-center items-center gap-5 font-bold text-base-content text-xl md:text-4xl">
             Ow! A wild error occurred (ó﹏ò｡){" "}
-            <span className="flex justify-end items-en text-md md:text-3xl">
+            <span className="flex justify-end items-en text-center text-md md:text-3xl">
               A wild error occurred! Please report this to the owner
             </span>
           </p>

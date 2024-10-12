@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme={theme === "dark" ? "dim" : "light"} className="w-[100vw] h-[100vh]">
       <Head>
-        <title>Your Page Title</title>
+        <title>ShopifySpy</title>
         <meta name="description" content="Analyze competitive databases in seconds!" />
         <meta property="og:title" content="ShopifySpy" />
         <meta property="og:description" content="Analyze competitive databases in seconds!" />
