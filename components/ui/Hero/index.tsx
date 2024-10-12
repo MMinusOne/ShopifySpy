@@ -12,10 +12,9 @@ export default function Hero() {
           <div className="max-w-3xl">
             <h1 className="font-bold text-5xl">ShopifySpy</h1>
             <p className="py-6 font-normal">
-              ShopifySpy is a powerful tool that allows you to analyze your
-              Shopify competitors. With ShopifySpy, you can access their
-              database of items, their reported revenue, and traffic. Stay ahead
-              of the competition and make informed decisions for your business.
+              ShopifySpy is a powerful tool that provides deep insights into Shopify store databases. 
+              With ShopifySpy, you can export products to CSV and JSON, and access their reported revenue and traffic. 
+              Stay ahead of the competition and make informed decisions for your business.
             </p>
             <SignedOut>
               <button
