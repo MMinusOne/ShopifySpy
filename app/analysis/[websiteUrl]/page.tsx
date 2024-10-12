@@ -88,7 +88,8 @@ export default function Analysis({
       "Product Images",
     ];
 
-    const exportProducts = hasDonated ? products : products.slice(0, 100);
+    // const exportProducts = hasDonated ? products : products.slice(0, 100);
+    const exportProducts = products;
 
     const data = exportProducts.flatMap((product) =>
       product.variants.map((variant, variantIndex) => [
@@ -220,7 +221,8 @@ export default function Analysis({
                     <a
                       href={`data:text/json;charset=utf-8,${encodeURIComponent(
                         JSON.stringify(
-                          hasDonated ? products : products.slice(0, 100)
+                          // hasDonated ? products : products.slice(0, 100)
+                          products
                         )
                       )}`}
                       download="products.json"
