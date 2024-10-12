@@ -215,7 +215,7 @@ export default function Analysis({
                       onClick={exportToCSV}
                       className="btn btn-primary btn-wide"
                     >
-                      Export to CSV <FaFileCsv className="fill-neutral" />{" "}
+                      Export to CSV <FaFileCsv className="fill-base-content" />{" "}
                     </a>
                     <a
                       href={`data:text/json;charset=utf-8,${encodeURIComponent(
@@ -226,11 +226,11 @@ export default function Analysis({
                       download="products.json"
                       className="btn btn-warning btn-wide"
                     >
-                      Export to JSON <b className="fill-neutral">{"{}"}</b>
+                      Export to JSON <b className="fill-base-content">{"{}"}</b>
                     </a>
                     <a className="btn btn-base-300 btn-wide" href={url}>
                       Visit Page{" "}
-                      <FaArrowRightToBracket className="fill-neutral" />
+                      <FaArrowRightToBracket className="fill-base-content" />
                     </a>
                   </div>
                 </div>
