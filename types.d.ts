@@ -14,6 +14,11 @@ export declare interface Product {
     options: ProductOption[]
 }
 
+export declare interface ThemeState {
+    theme: 'light' | 'dark';
+    setTheme: (theme: string) => void
+}
+
 export declare interface ProductVariant {
     id: number;
     title: string;

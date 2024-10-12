@@ -1,3 +1,4 @@
+import { useTheme } from "@/components/state/theme";
 import "@/styles/globals.scss";
 
 import type { Metadata } from "next";
@@ -13,8 +14,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { theme } = useTheme();
   return (
-      <html lang="en" data-theme="emerald" className="w-[100vw] h-[100vh]">
+      <html lang="en" data-theme={theme === "dark"? "dim": "light"} className="w-[100vw] h-[100vh]">
         <body className="w-full h-full overflow-x-hidden">{children}</body>
       </html>
   );

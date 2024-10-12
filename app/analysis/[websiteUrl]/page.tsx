@@ -175,10 +175,10 @@ export default function Analysis({
         {loading ? (
           <>
             <div className="flex justify-center items-center w-full h-full">
-              <p className="flex justify-center items-center gap-2 font-bold text-base-content text-xl md:text-4xl">
+              <p className="flex flex-col justify-center items-center gap-2 font-bold text-base-content text-xl md:text-4xl">
                 Loading store data! This may take a while (˶ᵔ ᵕ ᵔ˶){" "}
                 <span className="flex justify-end items-end loading loading-dots loading-lg"></span>
-                <span className="flex justify-end items-end">
+                <span className="flex justify-end items-en text-md md:text-3xl">
                   (
                   {new Intl.NumberFormat("en", {
                     notation: "compact",

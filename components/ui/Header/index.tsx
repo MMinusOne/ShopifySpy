@@ -1,5 +1,6 @@
 "use client";
 
+import { useTheme } from "@/components/state/theme";
 import { SignedIn, SignedOut, useUser, useClerk } from "@clerk/nextjs";
 import { useState } from "react";
 import {
@@ -15,7 +16,7 @@ import {
 export default function Header() {
   const { user } = useUser();
   const { openSignIn, signOut } = useClerk();
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className="bg-base-100 shadow-2xl rounded-2xl navbar">
@@ -62,7 +63,7 @@ export default function Header() {
             </li>
             <li>
               <a className="bg-opacity-40 btn btn-primary" href="/donate">
-                Donate <FaHeart className="fill-primary"/>
+                Donate <FaHeart className="fill-primary" />
               </a>
             </li>
           </ul>
