@@ -1,40 +1,25 @@
-"use client";
+import Layout from "@/components/ui/HomeLayout";
+import { Metadata } from "next";
 
-import { useTheme } from "@/components/state/theme";
-import "@/styles/globals.scss";
+export const metadata: Metadata = {
+  title: "ShopifySpy",
+  description: "Analyze competitive databases in seconds!",
+  openGraph: {
+    title: "ShopifySpy",
+    description: "Analyze competitive databases in seconds!",
+    images: [
+      {
+        url: "/assets/Image.png",
+      },
+    ],
+    url: "https://shopify-spy.app/",
+  },
+};
 
-import { ClerkProvider } from "@clerk/nextjs";
-import Head from "next/head";
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { theme } = useTheme();
-  return (
-    <ClerkProvider>
-      <html
-        lang="en"
-        data-theme={theme === "dark" ? "dim" : "light"}
-        className="w-full h-full"
-      >
-        <Head>
-          <title>ShopifySpy</title>
-          <meta
-            name="description"
-            content="Analyze competitive databases in seconds!"
-          />
-          <meta property="og:title" content="ShopifySpy" />
-          <meta
-            property="og:description"
-            content="Analyze competitive databases in seconds!"
-          />
-          <meta property="og:image" content="/assets/Image.png" />
-          <meta property="og:url" content="https://shopify-spy.vercel.app/" />
-        </Head>
-        <body className="w-full">{children}</body>
-      </html>
-    </ClerkProvider>
-  );
+  return <Layout children={children} />;
 }
