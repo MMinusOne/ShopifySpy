@@ -12,7 +12,7 @@ export const metadata: Metadata = {
         url: "/assets/Image.png",
       },
     ],
-    url: "https://shopify-spy.app/",
+    url: "https://shopifyspy.app/",
   },
 };
 
