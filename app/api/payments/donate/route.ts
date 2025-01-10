@@ -1,12 +1,14 @@
 import { lemonSqueezyApiInstance } from "@/components/axios";
-import { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
 
 export const dynamic = 'force-dynamic';
 
-export async function POST(req: NextRequest, res: NextApiResponse): Promise<NextResponse> {
+// Change the POST function signature to match Next.js App Router expectations
+export async function POST(
+    request: Request | NextRequest
+): Promise<Response | NextResponse> {
     try {
-        const reqData = await req.json();
+        const reqData = await request.json();
 
         if (!reqData.productId) {
             return NextResponse.json({ message: "productId is required" }, { status: 400 });

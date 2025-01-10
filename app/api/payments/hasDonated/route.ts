@@ -1,10 +1,9 @@
 import { neon } from '@neondatabase/serverless';
-import { NextApiResponse } from 'next';
 import { NextRequest } from 'next/server';
 
 export const dynamic = 'force-dynamic';
 
-export async function POST(req: NextRequest, res: NextApiResponse) {
+export async function POST(req: NextRequest): Promise<Response> {
     try {
         const reqData = await req.json();
 
